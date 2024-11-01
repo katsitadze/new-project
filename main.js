@@ -13,12 +13,69 @@
     },
  ]
 
-
+//დავალება 1
     
- let smallAge= function(minii){
-    let mini= Math.min(...minii.age);
-    console.log(mini)
+ function getyoungest(users){
 
+let youngest=users[0]
+for (let a of users){
+    if(a.age < youngest.age ){
+        youngest=a;
+    }
+
+}
+return youngest.name;
  }
+ console.log(getyoungest(arr));
 
-smallAge(arr);
+ //დავალება 2
+  function changeArr(obj){
+    return{
+      name:  obj.name.toUpperCase(),
+      age:   obj.age * 2,
+    }
+}
+ const changeArrys=arr.map(changeArr)
+ console.log(changeArrys)
+ // დავალება 2/2 amokhsna
+
+arr.forEach( obj => {
+    obj.name=obj.name.toUpperCase(),
+    obj.age=obj.age*2
+   
+})
+console.log(arr)
+
+
+//დავალება 2
+
+
+function diePlay() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+function winrolled(player) {
+    let attempts = 0;
+    let roll;
+
+    do {
+        roll = diePlay();
+        attempts++;
+        console.log(`${player} rolled: ${roll}`);
+    } while (roll !== 3);
+
+    return attempts;
+}
+function letplay() {
+     const attemptsA = winrolled("pleyer1");
+    const attemptsB = winrolled("player2 ");
+
+    if (attemptsA < attemptsB) {
+        console.log(`User A wins after ${attemptsA} attempts!`);
+    }  else {
+         console.log(`User B wins after ${attemptsB} attempts!`);
+    }
+}
+
+letplay();
+
